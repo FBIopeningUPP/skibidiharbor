@@ -31,7 +31,7 @@ label question:
 
     jay "what the hell u yapping about"
 
-    unkown "u figure it out for sure"
+    unknown "u figure it out for sure"
 
     jump room_intro
 
@@ -43,7 +43,7 @@ label silent:
 
     jump room_intro
 
-label room_intro
+label room_intro:
 
     "the light flickers"
 
@@ -74,22 +74,51 @@ label room_investigation:
 
         "look through the window":
             jump check_window
+
+        "view evidence":
+            call screen evidence_viewer
+            jump room_investigation
         
+        "inspect hidden compartment" if body_examined and not cassette_found:
+            jump hidden_compartment
+
         "leave the room":
             jump room_exit
 
 label examine_body:
 
-    "you kneel beside the body"
+    if not body_examined:
 
-    "its face is identical to yours"
+        "you kneel beside the body"
 
-    "a number has been carved in his rist"
+        "its face is identical to yours"
 
-    "67"
+        "a number has been carved in his rist"
 
-    jay "hell nah helly nah"
+        $ evidence.append("SUBJECT 67 ID")
+        $ body_examined = True
 
+        "evidence collected: SUBJECT 67 ID"
+
+    else:
+
+        "body already done"
+
+    jump room_investigation
+
+label hidden_compartment:
+
+    "you notice starnger marking beneath ur bed"
+
+    "a hidden compartment appears"
+
+    "inside a cassete labeled LOOP6767"
+
+    $ cassette_found
+
+    if "LOOP6767" not in evidence:
+        $ evidence.append("LOOP6767")
+    
     jump room_investigation
 
 label check_phone:
@@ -121,6 +150,10 @@ label check_window:
     jump room_investigation
 
 label room_exit:
+
+    if not cassette_found:
+        "missing something important"
+        jump room_investigation
 
     "you approach the door"
 
