@@ -8,3 +8,6 @@ default window_checked = False
 default cassette_found = False
 
 default cassette_played = False
+
+
+default escape_route = ""

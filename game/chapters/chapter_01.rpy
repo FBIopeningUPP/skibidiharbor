@@ -170,9 +170,17 @@ label open_door:
 
     unknown "we need to talk"
 
+    $ escape_route = "door"
+
+    "you slowly open the door"
+
+    unknown "we need to talk"
+
     jump chapter_one_end
 
 label window_escape:
+
+    $ escape_route = "window"
 
     "you force the window open"
 
@@ -185,6 +193,8 @@ label window_escape:
     jump chapter_one_end
 
 label hide_room:
+
+    $ escape_route = "hide"
 
     "you switch off the lights"
 
@@ -227,6 +237,17 @@ label play_cassette:
 
 label chapter_one_end:
 
-    "END"
+    if escape_route == "door":
+        "the woman smiles"
+        "she knows something about you"
+
+    elif escape_route == "window":
+        "you land on a fire escape"
+        "a black car follows you"
+
+    elif escape_route == "hide":
+        "the door slowly opens"
+    
+    "CHAPTER 1 COMPLETE"
 
     return
