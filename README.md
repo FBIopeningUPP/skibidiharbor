@@ -1,2 +1,3 @@
-# skibidiharbor
-a dark retro futuristic physcho spy thriller game set in osaka with brainrot humor and dating sim mechanics
+# SKIBIDI HARBOR
+
+this is a crazy af game with crazy af plots like usual and i am milind singh wooohooo starting this repo cause thats how it works

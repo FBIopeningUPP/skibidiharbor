@@ -1,0 +1,29 @@
+# Ren'Py compiled scripts and local state
+*.rpyc
+*.rpymc
+*.rpyb
+/game/cache/
+/game/saves/
+__pycache__/
+*.py[cod]
+
+# Editor backups and Ren'Py reports
+*.bak
+*.new
+*.old
+/errors.txt
+/files.txt
+/image_cache.txt
+/log.txt
+/save_dump.txt
+/traceback.txt
+/dialogue.tab
+/dialogue.txt
+/strings.json
+
+# Local builds and signing keys
+/build/
+/dist/
+/*-dists/
+/*-distributions/
+/*.keystore
