@@ -250,4 +250,4 @@ label chapter_one_end:
     
     "CHAPTER 1 COMPLETE"
 
-    return
+    jump chapter_02
