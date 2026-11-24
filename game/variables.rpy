@@ -11,3 +11,5 @@ default cassette_played = False
 
 
 default escape_route = ""
+
+default yuna_trust = 0
