@@ -6,3 +6,5 @@ default body_examined = False
 default phone_checked = False
 default window_checked = False
 default cassette_found = False
+
+default cassette_played = False

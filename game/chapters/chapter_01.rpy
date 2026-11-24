@@ -82,6 +82,12 @@ label room_investigation:
         "inspect hidden compartment" if body_examined and not cassette_found:
             jump hidden_compartment
 
+        "play LOOP6767 cassette" if cassette_found and not cassette_played:
+            jump play_cassette
+
+        "play LOOP6767 cassette" if cassette_found and not cassette_played:
+            jump play_cassette
+
         "leave the room":
             jump room_exit
 
@@ -104,21 +110,6 @@ label examine_body:
 
         "body already done"
 
-    jump room_investigation
-
-label hidden_compartment:
-
-    "you notice starnger marking beneath ur bed"
-
-    "a hidden compartment appears"
-
-    "inside a cassete labeled LOOP6767"
-
-    $ cassette_found
-
-    if "LOOP6767" not in evidence:
-        $ evidence.append("LOOP6767")
-    
     jump room_investigation
 
 label check_phone:
@@ -151,7 +142,7 @@ label check_window:
 
 label room_exit:
 
-    if not cassette_found:
+    if not cassette_played:
         "missing something important"
         jump room_investigation
 
@@ -202,6 +193,37 @@ label hide_room:
     unknown "you cant hide from urself"
 
     jump chapter_one_end
+
+label hidden_compartment:
+
+    "you find a hidden comartpment beneath the bed"
+
+    "inside is a cassate marked LOOP6767"
+
+    $ cassette_found = True
+    $ evidence.append("LOOP 67")
+
+    jump room_investigation
+
+label play_cassette:
+
+    "you insert LOOP6767 into the cassette player"
+
+    "static fills the room"
+
+    unknown "test subject 67. memory reset successful"
+
+    jay "what the fuck"
+
+    "a familiar voice interrupts the recording"
+
+    jay "if ur hearing this, dont trust the woman outside"
+
+    "the cassette stops"
+
+    $ cassette_played = True
+
+    jump room_investigation
 
 label chapter_one_end:
 
