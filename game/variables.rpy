@@ -13,3 +13,9 @@ default cassette_played = False
 default escape_route = ""
 
 default yuna_trust = 0
+
+default agent_reputation = 0
+default agent_choice = ""
+
+default memory_recovered = False
+default memory_destroyed = False
